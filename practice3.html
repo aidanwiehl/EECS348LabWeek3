@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 3 - Password Validator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Password Verification</h1>
+    
+    Password 1: <input type="password" id="pass1"><br><br>
+    Password 2: <input type="password" id="pass2"><br><br>
+    <button onclick="validate()">Validate</button>
+
+    <script>
+        function validate() {
+            var p1 = document.getElementById('pass1').value;
+            var p2 = document.getElementById('pass2').value;
+
+            if (p1.length < 8) {
+                alert("Error: The length of the first password must be at least 8 characters long.");
+            } else if (p2.length < 8) {
+                alert("Error: The length of the second password must be at least 8 characters long.");
+            } else if (p1 !== p2) {
+                alert("Error: Two passwords don't match!");
+            } else {
+                alert("Success: Passwords match!");
+            }
+        }
+    </script>
+    <br><br>
+    <a href="index.html">Back to Main Index</a>
+</body>
+</html>

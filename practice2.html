@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 2 - CSS Control</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CSS Font & Border Control</h1>
+    
+    <div id="text-container" style="border: 2px solid black; padding: 10px; margin-bottom: 20px;">
+        <p id="target-paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+    </div>
+
+    <h3>Border Controls</h3>
+    Border RGB Color (0-255):<br>
+    R: <input type="number" id="border-r" value="0" min="0" max="255">
+    G: <input type="number" id="border-g" value="0" min="0" max="255">
+    B: <input type="number" id="border-b" value="0" min="0" max="255"><br><br>
+    Border Width (px): <input type="number" id="border-w" value="2" min="1"><br><br>
+
+    <h3>Text Color Controls</h3>
+    Text RGB Color (0-255):<br>
+    R: <input type="number" id="text-r" value="0" min="0" max="255">
+    G: <input type="number" id="text-g" value="0" min="0" max="255">
+    B: <input type="number" id="text-b" value="0" min="0" max="255"><br><br>
+
+    <button onclick="changeStyle()">Apply Changes</button>
+
+    <script>
+        function changeStyle() {
+            var bR = document.getElementById('border-r').value;
+            var bG = document.getElementById('border-g').value;
+            var bB = document.getElementById('border-b').value;
+            var bW = document.getElementById('border-w').value;
+
+            var tR = document.getElementById('text-r').value;
+            var tG = document.getElementById('text-g').value;
+            var tB = document.getElementById('text-b').value;
+
+            var container = document.getElementById('text-container');
+            var paragraph = document.getElementById('target-paragraph');
+
+            container.style.borderColor = `rgb(${bR}, ${bG}, ${bB})`;
+            container.style.borderWidth = `${bW}px`;
+            paragraph.style.color = `rgb(${tR}, ${tG}, ${tB})`;
+        }
+    </script>
+    <br><br>
+    <a href="index.html">Back to Main Index</a>
+</body>
+</html>
