@@ -2,16 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Practice 4 - Multiplication Table Generator</title>
+    <title>Practice 4 - PHP Multiplication Table</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <h1>PHP Multiplication Table</h1>
-    <form action="practice4.php" method="post">
+
+    <!-- Form submits back to the same page -->
+    <form action="practice4.html" method="post">
         Size of the table: <input type="number" name="size" min="1" required>
         <input type="submit" value="Generate">
     </form>
     <br>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["size"])) {
+        $num = intval($_POST["size"]);
+        echo "<h3>Multiplication Table (1 to $num)</h3>";
+        echo "<table>";
+        
+        // Header row
+        echo "<tr><th>&nbsp;</th>";
+        for ($col = 1; $col <= $num; $col++) {
+            echo "<th>$col</th>";
+        }
+        echo "</tr>";
+
+        // Table body
+        for ($row = 1; $row <= $num; $row++) {
+            echo "<tr>";
+            echo "<th>$row</th>"; // Row index
+            for ($col = 1; $col <= $num; $col++) {
+                echo "<td>" . ($row * $col) . "</td>";
+            }
+            echo "</tr>";
+        }
+        echo "</table><br>";
+    }
+    ?>
+
     <a href="index.html">Back to Main Index</a>
 </body>
 </html>
